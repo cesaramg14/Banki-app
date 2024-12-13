@@ -1,6 +1,7 @@
 import React from 'react';
 import BackgroundComponent from '../BackgroundComponent';
 import '../../App.css';
+import logoBanki from '../../assets/logo-banki.svg'
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -17,7 +18,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title }) => {
             <div className="text-center mb-2">
               <div style={{ width: '250px', height: '80px' }} className="mx-auto mb-2">
                 <img
-                  src="/src/assets/logo-banki.svg"
+                  src={logoBanki}
                   alt="Logo"
                   className="img-fluid"
                   style={{
