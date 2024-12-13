@@ -153,7 +153,10 @@ const Home: React.FC = () => {
                                     Nueva Transferencia
                                 </button>
                             </div>
-                            <ExpenseStatisticsCard transactions={transactions} />
+                            <ExpenseStatisticsCard 
+                                transactions={transactions} 
+                                accountNumber={accountNumber} 
+                            />
                         </div>
 
                         <div className="transactions-section">
@@ -174,7 +177,7 @@ const Home: React.FC = () => {
                     onClose={() => setShowTransferModal(false)}
                     accountNumber={accountNumber}
                     onTransferComplete={() => {
-                        // Recargar el balance y las transacciones
+                        
                         fetchBalance();
                         fetchTransactions();
                     }}

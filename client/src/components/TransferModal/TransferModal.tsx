@@ -22,7 +22,7 @@ const TransferModal: React.FC<TransferModalProps> = ({ isOpen, onClose, accountN
     const [transferData, setTransferData] = useState<TransferData>({
         fromAccountNumber: accountNumber,
         toAccountNumber: '',
-        amount: 0,
+        amount: '' as unknown as number, 
         description: ''
     });
     const [showConfirmation, setShowConfirmation] = useState(false);
@@ -123,12 +123,13 @@ const TransferModal: React.FC<TransferModalProps> = ({ isOpen, onClose, accountN
                                 <input
                                     type="number"
                                     name="amount"
-                                    value={transferData.amount}
+                                    value={transferData.amount || ''} 
                                     onChange={handleChange}
                                     required
                                     min="0"
                                     step="0.01"
                                     className="form-control"
+                                    placeholder="0.00"
                                     onWheel={(e) => e.currentTarget.blur()}
                                     style={{ WebkitAppearance: 'none', MozAppearance: 'textfield' }}
                                 />
@@ -185,4 +186,4 @@ const TransferModal: React.FC<TransferModalProps> = ({ isOpen, onClose, accountN
     );
 };
 
-export default TransferModal; 
+export default TransferModal;

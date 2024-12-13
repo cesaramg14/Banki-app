@@ -15,20 +15,22 @@ ChartJS.register(
 
 interface Transaction {
   fromAccount: string;
+  toAccount: string;
   amount: string;
 }
 
 interface ExpenseStatisticsCardProps {
   transactions: Transaction[];
+  accountNumber: string;
 }
 
-const ExpenseStatisticsCard: React.FC<ExpenseStatisticsCardProps> = ({ transactions }) => {
+const ExpenseStatisticsCard: React.FC<ExpenseStatisticsCardProps> = ({ transactions, accountNumber }) => {
   const sentTransactions = transactions
-    .filter(t => t.fromAccount === '1000010')
+    .filter(t => t.fromAccount === accountNumber)
     .reduce((acc, t) => acc + parseFloat(t.amount), 0);
 
   const receivedTransactions = transactions
-    .filter(t => t.fromAccount !== '1000010')
+    .filter(t => t.toAccount === accountNumber && t.fromAccount !== accountNumber)
     .reduce((acc, t) => acc + parseFloat(t.amount), 0);
 
   const data = {
