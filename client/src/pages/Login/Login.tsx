@@ -9,6 +9,7 @@ import { LoginCredentials } from "../../components/types/auth";
 import { useAuthStore } from "../../components/store/authStore";
 import { SEO } from "../../components/SEO/SEO";
 import { API_Url } from "../../components/types/authAPI";
+import logoBanki from '../../assets/logo-banki.svg'
 
 const loginSchema = z.object({
     email: z.string().email("Correo Electrónico inválido"),
@@ -72,7 +73,7 @@ const Login: React.FC = () => {
                 title="LOGIN | BANKI"
                 description="Bienvenido a la página de inicio de nuestro sitio web. Aquí podrás encontrar información importante."
                 keywords={["inicio", "bienvenida", "sitio web"]}
-                image="../assets/BANKIico.png"
+                image={logoBanki}
                 url="https://localhost:5173/home"
                 type="website"
             />
